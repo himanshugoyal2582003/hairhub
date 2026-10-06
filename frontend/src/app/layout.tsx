@@ -13,6 +13,9 @@ export const metadata: Metadata = {
   description: 'Buy and sell human hair in India. Connect directly with buyers and sellers via WhatsApp. Browse straight, wavy, curly, and virgin hair.',
   keywords: 'human hair, hair extensions, virgin hair, buy hair India, sell hair online, hair seller, hair buyer',
   authors: [{ name: 'HairHub India' }],
+  verification: {
+    google: 'EiDaXZpoP8u2tggosYdyVCgkkWUnvR8RepLOGVNiipE',
+  },
   icons: {
     icon: '/logo.png',
     apple: '/logo.png',
