@@ -93,14 +93,14 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-2.5 text-sm text-slate-600 dark:text-slate-400">
                 <Mail className="w-4 h-4 text-blue-600 dark:text-cyan-400 shrink-0" />
-                <a href="mailto:support@hairhubindia.com" className="hover:text-blue-600 dark:hover:text-white transition-colors">
-                  support@hairhubindia.com
+                <a href="mailto:himanshu.goyal.arain@gmail.com" className="hover:text-blue-600 dark:hover:text-white transition-colors">
+                  himanshu.goyal.arain@gmail.com
                 </a>
               </li>
               <li className="flex items-center gap-2.5 text-sm text-slate-600 dark:text-slate-400">
                 <Phone className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
-                <a href="tel:+919999999999" className="hover:text-blue-600 dark:hover:text-white transition-colors">
-                  +91 99999 99999
+                <a href="tel:+918218154663" className="hover:text-blue-600 dark:hover:text-white transition-colors">
+                  +91 82181 54663
                 </a>
               </li>
             </ul>
