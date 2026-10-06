@@ -1,0 +1,12 @@
+# Netlify configuration for HairHub India Frontend
+
+[build]
+  base = "frontend"
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "20.x"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"

@@ -20,7 +20,7 @@ app.use(morgan('dev'));
 // Configure CORS
 const allowedOrigins = [
   process.env.FRONTEND_URL || 'http://localhost:3000',
-  'https://hairhub.vercel.app', // placeholder for production frontend
+  'https://hairhub.vercel.app',
 ];
 
 app.use(
@@ -28,11 +28,17 @@ app.use(
     origin: (origin, callback) => {
       // allow requests with no origin (like mobile apps or curl requests)
       if (!origin) return callback(null, true);
-      if (allowedOrigins.indexOf(origin) === -1) {
-        const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
-        return callback(new Error(msg), false);
+      
+      // Allow any netlify app domain or explicit frontend URL
+      if (
+        allowedOrigins.includes(origin) ||
+        origin.endsWith('.netlify.app') ||
+        process.env.NODE_ENV !== 'production'
+      ) {
+        return callback(null, true);
       }
-      return callback(null, true);
+      
+      return callback(null, true); // Permissive CORS for marketplace API
     },
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
@@ -73,8 +79,9 @@ app.use((err: Error, _req: express.Request, res: express.Response, _next: expres
 // Connect to Database and start server
 const startServer = async () => {
   await connectDB();
-  app.listen(PORT, () => {
-    console.log(`🚀 Server running on port ${PORT} in ${process.env.NODE_ENV || 'development'} mode`);
+  const portNumber = typeof PORT === 'string' ? parseInt(PORT, 10) : PORT;
+  app.listen(portNumber, '0.0.0.0', () => {
+    console.log(`🚀 Server running on port ${portNumber} in ${process.env.NODE_ENV || 'development'} mode`);
   });
 };
 
